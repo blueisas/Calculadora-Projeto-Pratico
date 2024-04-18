@@ -20,7 +20,7 @@ def colorcode(cor):
     # cálculo das faixas genéricas
     for cor_nome, cor_valor in cores[2:]:  # percorre a tupla (  ,  ) excluindo a possibilidade de dourado e prata
         if cor_nome in cor:  # quando encontrar na lista a cor inserida pelo usuário, calcula e coontinua procurando
-            resistor = (resistor * 10) + cor_valor  # falta pensar na possibilidades de duas faixas da mesma cor e na última faixa sendo cores diferentes de dourado ou prata
+            resistor = (resistor * 10) + cor_valor  # falta pensar na possibilidades de duas faixas da mesma cor
 
     # cálculo da última faixa (multiplicador)
     for cor_nome, cor_valor in cores:
