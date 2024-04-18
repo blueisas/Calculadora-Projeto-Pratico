@@ -16,18 +16,18 @@ def colorcode(cor):
 
     resistor = 0
     multiplicador = 1
-    quantidade = int(len(cor))
 
     # cálculo das faixas genéricas
     for cor_nome, cor_valor in cores[2:]:  # percorre a tupla (  ,  ) excluindo a possibilidade de dourado e prata
         if cor_nome in cor:  # quando encontrar na lista a cor inserida pelo usuário, calcula e coontinua procurando
-            resistor = (resistor * 10) + cor_valor
+            resistor = (resistor * 10) + cor_valor  # falta pensar na possibilidades de duas faixas da mesma cor e na última faixa sendo cores diferentes de dourado ou prata
 
     # cálculo da última faixa (multiplicador)
     for cor_nome, cor_valor in cores:
-        if cor[-1] == cor_nome:
+        if cor[-1] == cor_nome:  # verifica a cor da última faixa inserida
             multiplicador = 10 ** cor_valor
             break
+            
     resistor *= multiplicador
     return resistor
 
