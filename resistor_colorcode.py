@@ -1,5 +1,5 @@
 def colorcode(cor):
-    cores = (
+    cor = (
         ('prata', -2),
         ('dourado', -1),
         ('preto', 0),
