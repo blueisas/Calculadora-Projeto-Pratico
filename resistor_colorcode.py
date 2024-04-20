@@ -16,21 +16,21 @@ def colorcode(cor):
 
     resistor = 0
     multiplicador = 1
-    quantidade = int(len(cor))
 
     # cálculo das faixas genéricas
     for cor_nome, cor_valor in cores[2:]:  # percorre a tupla (  ,  ) excluindo a possibilidade de dourado e prata
-        if cor_nome in cor:  # quando encontrar na lista a cor inserida pelo usuário, calcula e coontinua procurando
-            resistor = (resistor * 10) + cor_valor
+        while cor_nome in cor[:-1]:  # percorre todas as faixas encontrando a cor, exceto a última
+            resistor = (resistor * 10) + cor_valor  # calcula
+            cor.remove(cor_nome)  # remove a cor da lista das faixas
 
     # cálculo da última faixa (multiplicador)
     for cor_nome, cor_valor in cores:
-        if cor[-1] == cor_nome:
-            multiplicador = 10 ** cor_valor
-            break
-    resistor *= multiplicador
+        if cor[-1] == cor_nome:  # testa a cor da última faixa do resistor
+            multiplicador = 10 ** cor_valor  # calcula quando encontra
+            break  # quebra o loop (não precisa encontrar mais nada)
+    resistor *= multiplicador  # adiciona a última faixa ao valor do resistor
     return resistor
 
 
-cores = ['vermelho', 'verde', 'prata']  # teste
+cores = ['vermelho', 'vermelho','vermelho', 'prata']  # teste
 print("O valor do resistor é:", colorcode(cores), "ohms")
